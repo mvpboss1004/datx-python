@@ -8,6 +8,8 @@ import os
 
 from .util import bytes2long, ip2long, convert, verify_ipv4
 
+__all__ = ["City", "ip2city_info"]
+
 class City:
     
     data = b""
@@ -65,3 +67,19 @@ class City:
                 tmp = (self.data[pos:pos+l]).decode("utf-8")
 
                 return tmp.split("\t")
+
+icity = City(os.path.join(os.path.dirname(__file__), "mydata4vipday2.datx"))
+fields = ["country", "province", "city", "organization", "isp", "latitude", "longitude", "tz_name", "tz", "post_code", "country_code", "country_abb", "continent_abb"]
+def ip2city_info(ip):
+    info = icity.find(ip)
+    ret = {}
+    if info == ['']:
+        return None
+    else:
+        for i in range(len(info)):
+            if info[i] != '':
+                ret[fields[i]] = info[i]
+        for key in ["latitude", "longitude"]:
+            if key in ret:
+                ret[key] = eval(ret[key])
+        return ret
