@@ -10,12 +10,17 @@ MAC数据包含MAC地址段及分配给的公司，这部分数据是公开的�
  - https://standards.ieee.org/develop/regauth/oui28/mam.csv  
  - https://standards.ieee.org/develop/regauth/oui36/oui36.csv  
 ### 1.3 手机归属地数据
-从https://www.qqzeng-ip.com购买手机号归属地数据phone-qqzeng.csv放置于`datax`目录下。注意要加上csv头：
+从`https://www.qqzeng-ip.com`购买手机号归属地数据phone-qqzeng.csv放置于`datax`目录下。注意要加上csv头：
 ```
 prefix,phone,province,city,isp,post_code,area_code,city_code
 ```
 ### 1.4 行政区划代码数据
 这部分数据是公开的，但时有更新。在这里我附上，如果有更新按`datax/china_city_code.csv`的格式组织文件即可。
+### 1.5 安装
+完成数据下载后，使用`setup.py`安装即可：  
+```
+python setup.py install
+```
 
 ## 2. 使用说明
 ### 2.1 原有IPIP库的使用方式
