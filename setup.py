@@ -18,7 +18,7 @@ setup(
     maintainer_email='mvpboss1004@126.com',
     license='Apache License Version 2.0',
     packages=['datx'],
-    package_data={'datx': ['china_city_code.csv', 'mydata4vipday2.datx', 'phone-qqzeng.csv']},
+    package_data={'datx': ['china_city_code.csv', 'mydata4vipday2.datx', 'phone-qqzeng.csv', 'oui36.csv', 'mam.csv', 'oui.csv']},
     platforms=['all'],
     install_requires=['pandas'],
     url='https://github.com/mvpboss1004/datx-python',

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*- 
 from .city_code import city_code2info
+import os
+import re
+
 __all__ = ['idcard2info']
 
 def idcard2info(id):
