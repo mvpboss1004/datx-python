@@ -5,3 +5,4 @@ from .mac import mac2info
 from .phone import phone2info
 from .idcard import idcard2info
 from .city_code import city_code2info
+from .card import cmb_debit2info, card2info

@@ -1,5 +1,5 @@
 # IP/MAC/电话/身份证信息查询
-在进行安全分析时，经常需要挖掘IP/MAC/电话/身份证等背后的信息。基于这个需求，我对IPIP.net的官方查询包进行了丰富。
+在进行安全分析时，经常需要挖掘IP/MAC/电话/身份证/银行卡等背后的信息。基于这个需求，我对IPIP.net的官方查询包进行了丰富。
 
 ## 1. 安装说明  
 ### 1.1 IP数据  
@@ -16,7 +16,10 @@ prefix,phone,province,city,isp,post_code,area_code,city_code
 ```
 ### 1.4 行政区划代码数据
 这部分数据是公开的，但时有更新。在这里我附上，如果有更新按`datax/china_city_code.csv`的格式组织文件即可。
-### 1.5 安装
+### 1.5 卡bin表
+这部分数据也是网上找的，见`https://download.csdn.net/download/qq_37016358/10485816`，不确定真实性和时效性，如果有更新按`datax/card_bin.csv`的格式组织文件即可。
+另有一部分分行对应信息表，按`datax/cmb_branch.csv`的格式组织文件。
+### 1.6 安装
 完成数据下载后，使用`setup.py`安装即可：  
 ```
 python setup.py install
@@ -43,7 +46,7 @@ print(d.find("223.221.121.0"))
 ```
 ### 2.2 拓展后的查询内容
 ```
-from datx import ip2city_info, mac2info, phone2info, idcard2info, city_code2info
+from datx import ip2city_info, mac2info, phone2info, idcard2info, city_code2info, card2info, cmb_debit2info
 # 查询IP地址
 print(ip2city_info('1.12.37.1'))
 
@@ -60,4 +63,10 @@ print(idcard2info('45020419880704123X'))
 
 # 查询6位行政区划代码（精确到地级市）
 print(city_code2info('450204'))
+
+# 查询卡号基本信息
+print(card2info('6214830000199527'))
+
+# 查询我行借记卡信息（目前只有开户分行）
+print(cmb_debit2info('6214830000199527'))
 ```
